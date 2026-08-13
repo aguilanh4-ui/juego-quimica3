@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <title>El Reino de la Química 3</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div id="app">
+    <section id="menu" class="screen active">
+      <div class="menu-card">
+        <div class="brand-kicker">RPG EDUCATIVO</div>
+        <h1>El Reino de la Química III</h1>
+        <p>Explora un mundo 2.5D, supera desafíos y domina la química.</p>
+        <h2>Elige tu personaje</h2>
+        <div class="character-grid">
+          <button class="character-card selected" data-character="kimi-man">
+            <div class="avatar kimi-man">KM</div><strong>Kimi Man</strong><span>Explorador químico</span>
+          </button>
+          <button class="character-card" data-character="kimi-woman">
+            <div class="avatar kimi-woman">KW</div><strong>Kimi Woman</strong><span>Alquimista científica</span>
+          </button>
+          <button class="character-card" data-character="alternative-kim">
+            <div class="avatar alternative-kim">AK</div><strong>Alternative Kim</strong><span>Tecno-alquimista</span>
+          </button>
+        </div>
+        <button id="startBtn" class="primary">Comenzar aventura</button>
+      </div>
+    </section>
+
+    <section id="gameScreen" class="screen">
+      <div id="hud">
+        <div class="hud-panel left">
+          <div class="hud-title"><span id="hudAvatar" class="mini-avatar"></span><div><strong id="hudName">Kimi Man</strong><small>Nivel <span id="level">1</span></small></div></div>
+          <label>Vida <span id="hpText">100/100</span></label><div class="bar"><i id="hpBar" class="hp"></i></div>
+          <label>XP <span id="xpText">0/100</span></label><div class="bar"><i id="xpBar" class="xp"></i></div>
+          <div class="stats"><span>🧠 <b id="knowledge">0</b></span><span>❓ <b id="questions">0/0</b></span><span>🪙 <b id="coins">0</b></span></div>
+        </div>
+
+        <div class="hud-panel objective">
+          <small>MISIÓN ACTUAL</small>
+          <strong id="objectiveTitle">Habla con la profesora</strong>
+          <span id="objectiveText">Acércate al laboratorio central y pulsa E.</span>
+        </div>
+
+        <div class="hud-panel mini-map-wrap">
+          <canvas id="miniMap" width="170" height="125"></canvas>
+          <span>Mapa del Reino</span>
+        </div>
+      </div>
+
+      <main id="stage">
+        <canvas id="game" width="1280" height="720"></canvas>
+        <div id="zoneLabel">Plaza de la Academia Química</div>
+        <div id="interactionHint" class="hidden">Pulsa <b>E</b> para interactuar</div>
+      </main>
+
+      <div id="bottomHud">
+        <div class="tip">WASD / Flechas: mover · E: interactuar · Espacio: acción</div>
+        <div class="quickbar"><button>🧪</button><button>📘</button><button>🗺️</button><button>⚗️</button></div>
+      </div>
+    </section>
+
+    <section id="quiz" class="modal hidden">
+      <div class="quiz-card">
+        <div class="quiz-head"><span id="quizZone">Desafío químico</span><button id="closeQuiz">×</button></div>
+        <h2 id="quizQuestion"></h2>
+        <div id="quizOptions"></div>
+        <div id="quizFeedback" class="feedback hidden"></div>
+      </div>
+    </section>
+  </div>
+  <script src="questions.js"></script>
+  <script src="game.js"></script>
+</body>
+</html>
